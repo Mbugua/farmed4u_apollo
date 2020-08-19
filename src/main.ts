@@ -1,8 +1,7 @@
 import "@/helpers/component-hooks";
-import "../node_modules/ionicons/dist/ionicons";
-import "../node_modules/bulma/css/bulma.min.css";
-import "@/assets/css/main.css";
 import Vue from "vue";
+import Buefy from "buefy";
+import "buefy/dist/buefy.css";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -14,7 +13,7 @@ extend("required", {
   ...required,
   message: "This field is required"
 });
-
+Vue.use(Buefy);
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = [/^ion-/];
 
