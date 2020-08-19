@@ -9,23 +9,22 @@
       </button>
 
       <div class="container">
-        <table class="table is-centered">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Img</th>
-              <th>Product</th>
-              <th>Tags</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-        </table>
+        {{ categories }}
       </div>
     </section>
   </div>
 </template>
 <script lang="ts">
-// import Vue from "vue";
-
-export default {};
+import { Component, Vue } from "vue-property-decorator";
+import { readCategories } from "@/store/products/getters";
+import { dipatchGetProductCategories } from "@/store/products/actions";
+@Component
+export default class Product extends Vue {
+  get categories() {
+    return readCategories(this.$store);
+  }
+  public async mounted() {
+    await dipatchGetProductCategories(this.$store);
+  }
+}
 </script>

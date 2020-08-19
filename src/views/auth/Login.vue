@@ -7,7 +7,7 @@
             <figure class="avatar">
               <img src="@/assets/img/logo.png" />
             </figure>
-            <form>
+            <form id="apollo-login" @keyup.enter="submit">
               <div class="field">
                 <div class="control has-icons-left">
                   <span class="icon is-small is-left">
@@ -59,8 +59,12 @@
   </section>
 </template>
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Component, Vue } from "vue-property-decorator";
+@Component
+export default class Login extends Vue {
+  public email = "";
+  public password = "";
+}
 </script>
 <style lang="css" scoped>
 html,
